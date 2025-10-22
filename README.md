@@ -1,27 +1,28 @@
 🛫 ASAPP – Airline Customer Support Chatbot
+
 1️⃣ Problem Statement
 
-The goal of this project is to build a conversational AI system capable of providing natural, human-like responses to customer queries related to airline services.
+1)The goal of this project is to build a conversational AI system capable of providing natural, human-like responses to customer queries related to airline services.
 
-Unlike traditional bots with predefined responses, this system is designed to:
+2)Unlike traditional bots with predefined responses, this system is designed to:
 
-Understand open-ended inputs.
+3)Understand open-ended inputs.
 
-Maintain context across multiple turns.
+4)Maintain context across multiple turns.
 
-Ensure all replies adhere to airline-specific policies.
+5)Ensure all replies adhere to airline-specific policies.
 
 Key Objectives:
 
-Understand and respond to any airline-related customer message naturally.
+1)Understand and respond to any airline-related customer message naturally.
 
-Maintain conversation context and multi-turn dialogue for continuous interactions.
+2)Maintain conversation context and multi-turn dialogue for continuous interactions.
 
-Stay on topic and avoid off-topic or unsafe responses.
+3)Stay on topic and avoid off-topic or unsafe responses.
 
-Comply with airline policies in every reply.
+4)Comply with airline policies in every reply.
 
-Deliver responses with low latency for real-time usability.
+5)Deliver responses with low latency for real-time usability.
 
 Form the final layer of the customer support bot architecture — integrating natural language understanding, policy enforcement, and conversational flow management to create a human-like, policy-compliant support experience.
 
@@ -54,6 +55,7 @@ Security:
 JWT, .env for environment variables, CORS
 
 3️⃣ Project Modules
+
 1️⃣ Authentication Module
 
 Handles secure login and registration of users.
