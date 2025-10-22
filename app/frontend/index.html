@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Airline Chat</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+
+  <!-- Container -->
+  <div class="w-full max-w-xl bg-white shadow-xl rounded-2xl overflow-hidden flex flex-col">
+    
+    <!-- Auth Section -->
+    <div id="auth-section" class="p-6 flex flex-col gap-4">
+      <h1 class="text-2xl font-bold text-center text-gray-800">Airline Chat Login</h1>
+      <input id="username" type="text" placeholder="Username" class="border p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+      <input id="password" type="password" placeholder="Password" class="border p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+      <div class="flex gap-2">
+        <button id="login-btn" class="flex-1 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition">Login</button>
+        <button id="signup-btn" class="flex-1 bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition">Sign Up</button>
+      </div>
+      <p id="auth-message" class="text-red-500 text-center"></p>
+    </div>
+
+    <!-- Chat Section -->
+    <div id="chat-section" class="hidden flex-1 flex flex-col">
+      
+      <!-- Chat Container -->
+      <div id="chat-container" class="flex-1 p-4 overflow-y-auto space-y-2 bg-gray-50">
+        <!-- Messages will be appended here -->
+      </div>
+
+      <!-- Input -->
+      <div class="flex p-4 border-t bg-white">
+        <input id="chat-input" type="text" placeholder="Type your message..." class="flex-1 p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+        <button id="send-btn" class="ml-2 bg-blue-600 text-white px-4 rounded-lg hover:bg-blue-700 transition">Send</button>
+        <button id="end-btn" class="ml-2 bg-red-600 text-white px-4 rounded-lg hover:bg-red-700 transition">End Session</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Script -->
+  <script src="script.js"></script>
+</body>
+</html>
