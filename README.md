@@ -39,24 +39,43 @@ It can handle **open-ended queries**, maintain **multi-turn conversations**, and
 
 ## How It Works
 
-1. **User logs in** via the Authentication Module  
-   - JWT verifies session and access  
+### 1. User Authentication and Login
+Users log into the system via the **Authentication Module**, which ensures secure access.  
+- Upon successful login, a **JWT (JSON Web Token)** is issued to verify the user session.  
+- Only authenticated users can interact with the chatbot.
 
-2. **FastAPI backend** receives the message  
+### 2. Message Reception
+The user's message is received by the **FastAPI backend**, which acts as the central server:  
+- Handles incoming requests  
+- Routes queries to the appropriate processing modules  
 
-3. **Chat Processing Module**  
-   - Cleans and preprocesses user input  
-   - Sends query to Gemini AI  
+### 3. Chat Processing Module
+Before sending the message to the AI:  
+- User input is **cleaned and preprocessed** (e.g., removing unwanted characters, handling typos, emojis)  
+- The prepared input is forwarded to **Gemini AI** for response generation  
 
-4. **Gemini AI** generates a natural, policy-compliant response  
+### 4. Gemini AI – Response Generation
+**Gemini AI** generates:  
+- Natural, human-like responses  
+- Policy-compliant and relevant answers  
+- Context-aware replies for a smooth conversational experience  
 
-5. **Session Management Module**  
-   - Updates conversation history  
-   - Maintains context for multi-turn dialogue  
+### 5. Session Management
+The **Session Management Module** keeps track of the conversation:  
+- Updates conversation history  
+- Maintains context for multi-turn dialogues  
 
-6. **Integration Module** formats the response and sends it back to the user  
+### 6. Integration and Response Delivery
+The **Integration Module**:  
+- Formats the AI-generated response for display  
+- Sends the response back to the user interface  
 
-7. **User receives** the chatbot’s reply
+### 7. User Receives Response
+Finally, the user receives the chatbot’s reply in real time, ensuring:  
+- Context-aware answers  
+- Accurate, human-like conversation  
+- Seamless interaction experience  
+
 
 
 
