@@ -1,4 +1,5 @@
 let token = null;
+let usernameGlobal = null; // Store username globally
 
 const authSection = document.getElementById("auth-section");
 const chatSection = document.getElementById("chat-section");
@@ -45,6 +46,7 @@ document.getElementById("login-btn").addEventListener("click", async () => {
         const data = await res.json();
         if (res.ok) {
             token = data.token;
+            usernameGlobal = username; // store username
             authSection.classList.add("hidden");
             chatSection.classList.remove("hidden");
         } else {
@@ -92,6 +94,11 @@ document.getElementById("send-btn").addEventListener("click", async () => {
     appendMessage(message, "user");
     chatInput.value = "";
 
+    if (!usernameGlobal) {
+        appendMessage("No user logged in", "ai");
+        return;
+    }
+
     try {
         const res = await fetch(`${API_BASE}/chat/`, {
             method: "POST",
@@ -99,7 +106,10 @@ document.getElementById("send-btn").addEventListener("click", async () => {
                 "Content-Type": "application/json",
                 "Authorization": `Bearer ${token}`
             },
-            body: JSON.stringify({ message })
+            body: JSON.stringify({ 
+                message, 
+                username: usernameGlobal // send username for summary retrieval
+            })
         });
         const data = await res.json();
         appendMessage(data.answer || "No response from server", "ai");
@@ -110,12 +120,19 @@ document.getElementById("send-btn").addEventListener("click", async () => {
 
 // END SESSION
 document.getElementById("end-btn").addEventListener("click", async () => {
+    if (!usernameGlobal) {
+        appendMessage("No user logged in", "ai");
+        return;
+    }
+
     try {
         const res = await fetch(`${API_BASE}/chat/end_session`, {
             method: "POST",
             headers: {
+                "Content-Type": "application/json",
                 "Authorization": `Bearer ${token}`
-            }
+            },
+            body: JSON.stringify({ username: usernameGlobal }) // send username
         });
         const data = await res.json();
         appendMessage("Session Ended. Summary: " + (data.summary || "N/A"), "ai");
@@ -125,6 +142,7 @@ document.getElementById("end-btn").addEventListener("click", async () => {
         authSection.classList.remove("hidden");
         chatContainer.innerHTML = "";
         token = null;
+        usernameGlobal = null;
     } catch (e) {
         appendMessage("Error ending session", "ai");
     }
