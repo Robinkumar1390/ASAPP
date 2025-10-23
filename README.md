@@ -11,7 +11,7 @@ It can handle **open-ended queries**, maintain **multi-turn conversations**, and
 **Backend:** Python, FastAPI, uvicorn, Gemini AI, JWT, bcrypt  
 **Database:** MongoDB, Motor, Compass  
 **Frontend:** HTML, JavaScript, Tailwind, Fetch API, JWT in browser  
-**Dev Tools & Security:** Python env, IDE, Postman, Git, .env, CORS  
+**Dev Tools & Security:** Postman, Git, .env 
 
 ---
 
